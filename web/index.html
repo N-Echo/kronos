@@ -5,9 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <script type="text/javascript">
+        console.log("load")
+        $(function(){
+            $('#mainCalendarContainer').load( './html/testcalendar.html' );
+        });
+    </script>
+    
+    <link rel="stylesheet" type="text/css" href="./stylesheet/calendar.css" ></link>
+    
 </head>
 <body>
     <!-- <navbar> -->
     <!-- Calendar here -->
+    <div class="calendarContainer" id="mainCalendarContainer"></div>
+    <!-- <link href="./html/testcalendar.html" rel="import"/> -->
+    <!-- <object type="text/html" data="./html/testcalendar.html"></object> -->
+ 
+    
+    <script src="./script/calendar.js"></script>
 </body>
 </html>
