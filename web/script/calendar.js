@@ -40,6 +40,15 @@ function getDaysInMonth(date) {
         }
     }
 }
+
+function calendarNextMonth(e){
+
+}
+function calendarPrevMonth(e){
+  
+}
+
+
 window.onload = function(){
   console.log('shooty')
     for(let i = 0; i < getMFWD(date);i++){
