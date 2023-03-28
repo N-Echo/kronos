@@ -1,8 +1,10 @@
 //https://www.w3schools.com/jsref/jsref_getday.asp
 const date = new Date();
+const selDate = new Date();
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const daylist = document.getElementById('dayList');
 const monthDisplay = document.getElementById('monthDisplay')
+const yearDisplay = document.getElementById('yearDisplay')
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 
@@ -40,12 +42,57 @@ function getDaysInMonth(date) {
         }
     }
 }
+function nextMonth(d){
+  if (d.getMonth == 11){
+    d.setMonth(0);
+    d.setYear(d.getYear() + 1);
+  }
+  else{
+    d.setMonth(d.getMonth() + 1)
+  }
+}
+function prevMonth(d){
+  if (d.getMonth == 0){
+    d.setMonth(11);
+    d.setYear(d.getYear() - 1);
+    console.log(d.getFullYear)
+  }
+  else{
+    d.setMonth(d.getMonth() - 1)
+  }
+}
 
 function calendarNextMonth(e){
-
+  console.log("clicked");
+  nextMonth(selDate);
+  daylist.innerHTML = ``;
+  for(let i = 0; i < getMFWD(selDate);i++){
+    daylist.innerHTML += (`<li></li>`)
+    
+  }
+  for(let j = 1; j <= getDaysInMonth(selDate);j++){
+      // alert(j)
+      daylist.innerHTML +=(`<li>${j}</li>`)
+  }
+  //inserting the month
+  monthDisplay.innerHTML = months[selDate.getMonth()]
+  yearDisplay.innerHTML = selDate.getFullYear()
 }
 function calendarPrevMonth(e){
-  
+  console.log("clicked");
+  prevMonth(selDate);
+  daylist.innerHTML = ``;
+  for(let i = 0; i < getMFWD(selDate);i++){
+    daylist.innerHTML += (`<li></li>`)
+    
+  }
+  for(let j = 1; j <= getDaysInMonth(selDate);j++){
+      // alert(j)
+      daylist.innerHTML +=(`<li>${j}</li>`)
+  }
+  //inserting the month
+  monthDisplay.innerHTML = months[selDate.getMonth()]
+  yearDisplay.innerHTML = selDate.getFullYear()
 }
 
 
@@ -61,20 +108,11 @@ window.onload = function(){
     }
     //inserting the month
     monthDisplay.innerHTML = months[date.getMonth()]
-    
-    console.log(date.getMonth() + " " + monthDisplay.innerHTML)
+    yearDisplay.innerHTML = date.getFullYear()
+    console.log(date.getDate())
+    console.log(date.getYear())
     // monthDisplay.innerText = months
 }
 
 
-//has a wide range of phys prop
-//use a cocrystal approach
-//to modify the material (using stuff)
-//how to cocrystallize 
-//using FF as an example
 
-
-//ppl doa lot of screening
-//solvent assisted grinding
-//computational way
-//ocmbination
